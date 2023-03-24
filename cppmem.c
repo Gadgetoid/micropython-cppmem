@@ -4,6 +4,7 @@ STATIC MP_DEFINE_CONST_FUN_OBJ_0(cpp_mem_get_alloc_bytes_obj, cpp_mem_get_alloc_
 STATIC MP_DEFINE_CONST_FUN_OBJ_0(cpp_mem_get_alloc_count_obj, cpp_mem_get_alloc_count);
 STATIC MP_DEFINE_CONST_FUN_OBJ_0(cpp_mem_get_free_count_obj, cpp_mem_get_free_count);
 STATIC MP_DEFINE_CONST_FUN_OBJ_1(cpp_mem_set_allocator_mode_obj, cpp_mem_set_allocator_mode);
+STATIC MP_DEFINE_CONST_FUN_OBJ_0(cpp_mem_get_allocator_mode_obj, cpp_mem_get_allocator_mode);
 
 STATIC const mp_map_elem_t cppmem_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_cppmem) },
@@ -11,6 +12,7 @@ STATIC const mp_map_elem_t cppmem_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR_alloc_count), MP_ROM_PTR(&cpp_mem_get_alloc_count_obj) },
     { MP_ROM_QSTR(MP_QSTR_free_count), MP_ROM_PTR(&cpp_mem_get_free_count_obj) },
     { MP_ROM_QSTR(MP_QSTR_set_mode), MP_ROM_PTR(&cpp_mem_set_allocator_mode_obj) },
+    { MP_ROM_QSTR(MP_QSTR_get_mode), MP_ROM_PTR(&cpp_mem_get_allocator_mode_obj) },
     { MP_ROM_QSTR(MP_QSTR_FIXED_HEAP), MP_ROM_INT(0) },
     { MP_ROM_QSTR(MP_QSTR_MICROPYTHON), MP_ROM_INT(1) }
 };

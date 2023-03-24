@@ -27,6 +27,10 @@ mp_obj_t cpp_mem_set_allocator_mode(mp_obj_t new_mode) {
     return mp_const_none;
 }
 
+mp_obj_t cpp_mem_get_allocator_mode() {
+    return mp_obj_new_int((int)mode);
+}
+
 mp_obj_t cpp_mem_get_alloc_bytes() {
     return mp_obj_new_int(alloc_bytes);
 }
@@ -102,3 +106,13 @@ void operator delete(void *p, __unused std::size_t n) noexcept { stat_free(p); }
 void operator delete[](void *p, __unused std::size_t n) noexcept { stat_free(p); }
 
 #endif
+
+namespace {
+    struct SwitchAllocatorMode {
+        public:
+            SwitchAllocatorMode() {
+                mode = MICROPYTHON;
+            }
+    };
+    SwitchAllocatorMode switchallocatormode __attribute__ ((init_priority (65535)));
+}
